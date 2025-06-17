@@ -30,6 +30,7 @@ const CategoryManager = () => {
     Composition: "",
     Dose_Indication: "",
     Company: "",
+    Contraindications:"",
     image: null,
   });
   const [editId, setEditId] = useState(null);
@@ -127,6 +128,7 @@ const CategoryManager = () => {
           Composition: form.Composition || existingData.Composition,
           Dose_Indication: form.Dose_Indication || existingData.Dose_Indication,
           Company: form.Company || existingData.Company,
+          Contraindications: form.Contraindications || existingData.Contraindications,
           image: imageUrl || existingData.image,
           ownerId: existingData.ownerId,
         };
@@ -143,6 +145,7 @@ const CategoryManager = () => {
           medicine_brand_lowercase: form.Brand.toLowerCase(),
           Composition: form.Composition,
           Dose_Indication: form.Dose_Indication,
+          Contraindications:form.Contraindications,
           Company: form.Company,
           image: imageUrl || "",
           ownerId: currentUser.uid,
@@ -160,6 +163,7 @@ const CategoryManager = () => {
         Brand: "",
         Composition: "",
         Dose_Indication: "",
+        Contraindications:"",
         Company: "",
         image: null,
       });
@@ -182,6 +186,7 @@ const CategoryManager = () => {
       Composition: cat.Composition,
       Dose_Indication: cat.Dose_Indication,
       Company: cat.Company,
+      Contraindications:cat.Contraindications,
       image: null,
     });
     setEditId(cat.id);
@@ -313,7 +318,16 @@ const CategoryManager = () => {
                   onChange={(e) => setForm({ ...form, Dose_Indication: e.target.value })}
                 />
               </div>
-
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Contraindications</label>
+                <textarea
+                  placeholder="Recommended Contraindications"
+                  value={form.Contraindications}
+                  rows="2"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                  onChange={(e) => setForm({ ...form,  Contraindications: e.target.value })}
+                />
+              </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Medicine Image</label>
                 <label className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:border-blue-500 hover:bg-blue-50 transition">
@@ -372,6 +386,7 @@ const CategoryManager = () => {
                       Composition: "",
                       Dose_Indication: "",
                       Company: "",
+                      Contraindications:"",
                       image: null,
                     });
                   }}

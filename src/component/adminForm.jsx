@@ -4,7 +4,6 @@ import { auth } from "../firebase";
 import { PulseLoader } from "react-spinners";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 export default function AdminAuthForm() {
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState("");
